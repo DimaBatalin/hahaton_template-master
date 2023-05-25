@@ -1,6 +1,7 @@
 <template>
-  <q-page class="q-pa-md">
-    <q-btn color="orange" text-color="black" label="Добавить пользователя" class="q-ma-md" @click="isVisiblUser = !isVisiblUser"/>
+  <q-page class="q-pa-lg">
+
+    <q-btn text-color="black" label="Добавить пользователя" class="q-mb-lg bg-accent" @click="isVisiblUser = !isVisiblUser"/>
 
     <q-table
       title="Пользователи"
@@ -31,17 +32,19 @@
 
         <q-card-section>
           <q-input v-model="message.name" placeholder="ФИО"/>
-          <q-input v-model="message.email_telephone" placeholder="Email/телефон"/>
+          <q-input v-model="message.email" placeholder="Email"/>
+          <q-input v-model="message.telephoneNumber" placeholder="Номер телефона"/>
+
           <div style="display: flex" class="q-ma-md">
             <q-select
-            filled
-            multiple
-            :options="options"
-            label="Датчики"
-            style="width: 250px"
-            v-model="message.sensors"
+              filled
+              multiple
+              :options="options"
+              label="Датчики"
+              style="width: 250px"
+              v-model="message.sensors"
             /> 
-            <q-btn color="orange" text-color="black" label="Добавить" class="q-ml-md"/>
+            <q-btn color="orange" text-color="black" label="Добавить" @click="addMessage()" class="q-ml-md"/>
           </div>
         </q-card-section>
       </q-card>
@@ -55,11 +58,6 @@ export default {
   data() {
     return {
       isVisiblUser: false,
-      message: {
-        name: null,
-        email_telephone: null,
-        sensors: null,
-      },
       options: [
         '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18'
       ],
@@ -72,55 +70,73 @@ export default {
           style: 'width: 1%',
         },
         {
-          name: 'subject',
+          name: 'name',
           required: true,
           label: 'Фио',
           align: 'left',
-          field: 'subject',
-          style: 'width: 30%',
+          field: 'name',
+          style: 'width: 15%',
         },
         {
-          name: 'body',
+          name: 'telephoneNumber',
           required: true,
           label: 'Номер телефона',
           align: 'left',
-          field: 'body',
+          field: 'telephoneNumber',
           style: 'width: 40%',
         },
         {
-          name: 'sensors',
+          name: 'email',
           required: true,
           label: 'Email',
           align: 'left',
-          field: 'sensors',
-        }
+          field: 'email',
+        },
+        {
+          name: "sensors",
+          required: true, 
+          label: "sensors",
+          align: "left", 
+          field: "sensors",
+          style: "width: 10%"
+        },
       ],
       data: [
         {
           number: 1,
-          subject: "wdf", 
-          body: "шапгыр",
-          sensors: "sensors"
+          name: "Баталин Сергей Андреевич", 
+          telephoneNumber: "892212.....",
+          email: "sensors1@gmail.com",
+          sensors: "1, 2, 3",
         },
         {
           number: 2,
-          subject: "wdf", 
-          body: "шапгыр",
-          sensors: "sensors"
+          name: "Костин Сергей Андреевич", 
+          telephoneNumber: "892122.....",
+          email: "sensors2@gmail.com",
+          sensors: "1, 2, 3",
         },
         {
           number: 3,
-          subject: "wdf", 
-          body: "шапгыр",
-          sensors: "sensors"
+          name: "Костин Сергей Семенович", 
+          telephoneNumber: "892112.....",
+          email: "sensors3@gmail.com",
+          sensors: "1, 2, 3",
         },
         {
           number: 4,
-          subject: "wdf", 
-          body: "шапгыр",
-          sensors: "sensors"
+          name: "Баталин Дмитрий Андреевич", 
+          telephoneNumber: "892222.....",
+          email: "sensors4@gmail.com",
+          sensors: "1, 2, 3",
         },
-      ]
+      ],
+      message: {
+        name: null,
+        telephoneNumber: null,
+        email: null,
+        sensors: null
+      },
     }
   },
   methods: {

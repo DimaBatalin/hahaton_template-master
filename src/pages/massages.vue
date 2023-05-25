@@ -1,7 +1,7 @@
 <template>
-  <q-page class="q-pa-md">
+  <q-page class="q-pa-lg">
 
-    <q-btn color="orange" text-color="black" label="Добавить сообщение" class="q-ma-md" @click="isVisibl = !isVisibl"/>
+    <q-btn text-color="black" label="Добавить сообщение" class="q-mb-lg bg-accent" @click="isVisibl = !isVisibl"/>
 
     <q-table
       title="Сообщения"
@@ -102,27 +102,27 @@ export default {
       data: [
         {
           number: 1,
-          subject: "wdf", 
-          body: "шапгыр",
-          sensors: "sensors"
+          subject: "поломка", 
+          body: "надо печенить",
+          sensors: "12"
         },
         {
           number: 2,
-          subject: "wdf", 
-          body: "шапгыр",
-          sensors: "sensors"
+          subject: "поломка", 
+          body: "надо печенить",
+          sensors: "34"
         },
         {
           number: 3,
-          subject: "wdf", 
-          body: "шапгыр",
-          sensors: "sensors"
+          subject: "поломка", 
+          body: "надо печенить",
+          sensors: "56"
         },
         {
           number: 4,
-          subject: "wdf", 
-          body: "шапгыр",
-          sensors: "sensors"
+          subject: "всё хорошо", 
+          body: "проверь плз",
+          sensors: "67"
         },
       ]
     }
